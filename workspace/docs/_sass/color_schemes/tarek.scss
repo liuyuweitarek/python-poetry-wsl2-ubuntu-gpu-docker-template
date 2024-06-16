@@ -1,0 +1,65 @@
+@import "./color_schemes/dark";
+
+$body-background-color: #0C0C0C;
+$sidebar-color: #0C0C0C;
+$code-background-color: #141313;
+$code-linenumber-color: rgb(207, 255, 241);
+$body-font-family: "Source Sans Pro", "JetBrains Mono", system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
+  roboto, "Helvetica Neue", arial, sans-serif, "Segoe UI Emoji" !default;
+$link-color: $green-100;
+$table-background-color: #2a3338;
+
+@import "./search";
+
+.search-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: $sp-2 $gutter-spacing-sm $sp-2 #{$gutter-spacing-sm + $sp-5};
+    font-family: "JetBrains Mono";
+    font-size: 1.2rem;
+    color: $body-text-color;
+    background-color: $search-background-color;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-radius: 0;
+  
+    @include mq(md) {
+      padding: $sp-2 $gutter-spacing-sm $sp-2 #{$gutter-spacing + $sp-5};
+      font-size: 0.875rem;
+      background-color: $body-background-color;
+      transition: padding-left linear #{$transition-duration * 0.5};
+    }
+  
+    &:focus {
+      outline: 0;
+  
+      + .search-label .search-icon {
+        color: $link-color;
+      }
+    }
+  }
+
+.search-results {
+    font-family: "Source Sans Pro";
+    position: absolute;
+    left: 0;
+    display: none;
+    width: 100%;
+    max-height: calc(100% - #{$sp-10});
+    overflow-y: auto;
+    background-color: $search-background-color;
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.12),
+        0 3px 10px rgba(0, 0, 0, 0.08);
+
+    @include mq(md) {
+        top: 100%;
+        width: $search-results-width;
+        max-height: calc(100vh - 200%) !important;
+    }
+}

@@ -1,0 +1,44 @@
+version: '1'
+
+services:
+  workspace:
+    container_name: "workspace-${PROJECT_NAME}"
+    # For development
+    stdin_open: true
+    tty: true
+    build:
+      context: ./${ROOT_DIR}
+      dockerfile: Dockerfile
+      target: builder
+      args:
+        DEV: true
+        ROOT_DIR: ${ROOT_DIR}
+        PROJECT_NAME: ${PROJECT_NAME}
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DISABLE_REQUIRE=1
+    volumes:
+      - ./${ROOT_DIR}:/${ROOT_DIR}
+      - venv:/${ROOT_DIR}/.venv
+    ports:
+      - "8000:8000"
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: all
+            capabilities: [gpu]
+    # depends_on:
+    #   - redis
+  jekyll:
+    container_name: "jekyll-${PROJECT_NAME}"
+    build: ./${ROOT_DIR}/docs
+    volumes:
+      - ./${ROOT_DIR}/docs:/site
+    ports:
+      - '4000:4000'
+volumes:
+  venv:
+
+    
