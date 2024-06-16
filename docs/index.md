@@ -6,7 +6,7 @@ has_toc: true
 has_children: false
 ---
 
-<img src="/assets/images/tareks_dog_willy.png" width="300" height="300">
+<img src="./assets/images/tareks_dog_willy.png" width="300" height="300">
 
 # What is this template for?
 
