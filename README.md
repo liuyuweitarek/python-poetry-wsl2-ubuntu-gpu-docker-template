@@ -27,7 +27,8 @@ See more details in [Template Documentation](https://liuyuweitarek.github.io/pyt
 Please feel free to open an issue through [Github Issues](https://github.com/liuyuweitarek/python-poetry-wsl2-ubuntu-gpu-docker-template/issues). Thank you for your report. :)   
 
 --- 
-<ins>**(Content above can be deleted once the new project is created; furthermore, the content below belongs to the new project generated using the template.)**</ins>
+> [!TIP]
+> <ins>**(Content above can be deleted once the new project is created; furthermore, the content below belongs to the new project generated using the template.)**</ins>
 
 ## Getting Started
 
