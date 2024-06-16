@@ -18,23 +18,23 @@ usetocbot: true
 
 1. Go "Settings" -> "Apps" -> "Programs and Features"
     
-    <img src="/assets/images/open-wsl2-1.png">
+    <img src="{{ '/assets/images/open-wsl2-1.png' | relative_url }}">
 
 2. Click "Turn Windows fetures on or off"
 
-    <img src="/assets/images/open-wsl2-2.png">
+    <img src="{{ '/assets/images/open-wsl2-2.png' | relative_url }}">
 
 3. Click and turn on "Windows Subsystem for Linux".
 
-    <img src="/assets/images/open-wsl2-3.png">
+    <img src="{{ '/assets/images/open-wsl2-3.png' | relative_url }}">
 
 4. Go "MicroSoft Store" -> Search for "Ubuntu22.04" -> "Install" -> "Open"
     
-    <img src="/assets/images/open-wsl2-4.png">
+    <img src="{{ '/assets/images/open-wsl2-4.png' | relative_url }}">
 
 5. Search "Ubuntu" in the application launcher to open the terminal. The first time you open the terminal, you will need to set up a new user and set a password. Follow the instructions and you're done!
 
-    <img src="/assets/images/open-wsl2-5.png">
+    <img src="{{ '/assets/images/open-wsl2-5.png' | relative_url }}">
 
 
 # Through Command Line
@@ -88,7 +88,7 @@ usetocbot: true
     ```bash
     $ wsl
     ```
-    <img src="/assets/images/open-wsl2-5.png">
+    <img src="{{ '/assets/images/open-wsl2-5.png' | relative_url }}">
 
     Works fine!
 

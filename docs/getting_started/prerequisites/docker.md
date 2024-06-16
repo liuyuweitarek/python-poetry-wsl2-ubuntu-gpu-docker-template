@@ -23,11 +23,11 @@ usetocbot: true
 
     1. Go "Settings" -> "General" -> Click up "Use the WSL 2 based engine (Windows Home can only run the WSL 2 backend)"
     
-        <img src="/assets/images/setup-docker-1.png">
+        <img src="{{ '/assets/images/setup-docker-1.png' | relative_url }}">
 
     2. Go "Settings" -> "Resources" -> "WSL integration" -> "Enable integration with my default WSL distro" -> Click up "Ubuntu22.04"    
 
-        <img src="/assets/images/setup-docker-2.png">
+        <img src="{{ '/assets/images/setup-docker-2.png' | relative_url }}">
 
 [Previous](./cuda-toolkit.md){: .btn }
 [Next](./nvidia-container-toolkit.md){: .btn .float-right}

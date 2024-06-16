@@ -27,7 +27,7 @@ By following these guidelines, you can effectively customize the Jekyll blog ser
 > 2. Find it is "site-footer"
 > 3. Looking for `custom_footer` in `_config.yml` or looking for [Source Code](https://github.com/just-the-docs/just-the-docs) in `docs/_includes/nav_footer_custom.html`
 >
->    <img src="/assets/images/customize-component-1.png">
+>    <img src="{{ '/assets/images/customize-component-1.png' | relative_url }}">
 >
 
 {: .note}
@@ -45,10 +45,10 @@ By following these guidelines, you can effectively customize the Jekyll blog ser
 >
 > 5. However, it's looks like:
 >
->    <img src="/assets/images/customize-component-2.png">
+>    <img src="{{ '/assets/images/customize-component-2.png' | relative_url }}">
 >
 > 6. Searching in [Source Code](https://github.com/just-the-docs/just-the-docs) and add `title.html` to `docs/_includes/` to customize it.
 >
->    <img src="/assets/images/customize-component-3.png">
+>    <img src="{{ '/assets/images/customize-component-3.png' | relative_url }}">
 
 Please see more details in [official documentations](https://just-the-docs.com/docs/customization/).

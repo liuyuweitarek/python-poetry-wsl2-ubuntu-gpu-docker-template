@@ -21,7 +21,7 @@ Download CUDA Toolkit from [formal website](https://developer.nvidia.com/cuda-do
 
 My Arch:
 
-<img src="/assets/images/install-cuda-toolkit-1.png"/>
+<img src="{{ '/assets/images/install-cuda-toolkit-1.png' | relative_url }}"/>
 
 # Validate whether installation is successful
 
