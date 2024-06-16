@@ -5,12 +5,12 @@ favicon_ico: "/assets/images/tareks_dog_willy.ico"
 
 # TODO: Add your repository name here and select corresponding way to link it 
 # on `gh-pages`, set like this:
-# baseurl: "python-poetry-wsl2-ubuntu-gpu-docker-template" 
-# url: https://github.com/liuyuweitarek/
+baseurl: "python-poetry-wsl2-ubuntu-gpu-docker-template" 
+url: https://github.com/liuyuweitarek/
 
 # on `local jekyll server`, set like this: 
-baseurl: ""
-url: "https://localhost"
+# baseurl: ""
+# url: "https://localhost"
 
 
 github: [metadata]
