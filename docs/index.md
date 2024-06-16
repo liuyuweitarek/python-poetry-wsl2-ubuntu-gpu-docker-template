@@ -27,9 +27,9 @@ This template will build two docker images, which includes:
 
 # How to use this template?
 
-Get started with [Prerequisites](./getting_started/prerequisites/) and [Installation](./getting_started/installations.md) based on your Operating System and GPU Driver Version. Next, [customize this template](./getting_started/customized-to-new-project.md) for your project.
+Get started with [Prerequisites](./getting_started/prerequisites/) and [Installation](./getting_started/installations.html) based on your Operating System and GPU Driver Version. Next, [customize this template](./getting_started/customized-to-new-project.html) for your project.
 
-If you want to use this template as your project's documentation, please check more details in [editing this documentation](./documentations/index.md) that shows how to manage these pages and customize it for your project.
+If you want to use this template as your project's documentation, please check more details in [editing this documentation](./documentations/) that shows how to manage these pages and customize it for your project.
 
 # Having issues?
 
