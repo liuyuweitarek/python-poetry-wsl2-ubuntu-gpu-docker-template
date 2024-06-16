@@ -1,7 +1,7 @@
 # Python Poetry WSL2-Ubuntu-GPU Docker Template
 
 ## What is this template for?
-This template sets up a Docker-based development environment with GPU support for Python projects using Poetry for package management, customized for PyTorch. It works on both Windows WSL2 and Ubuntu, and incorporates Jekyll for GitHub Pages documentation.
+This template sets up a <ins>Docker-based development environment with GPU support</ins> for Python projects using <ins>Poetry for package management</ins>, customized for <ins>PyTorch</ins>. It works on both <ins>Windows WSL2</ins> and <ins>Ubuntu</ins>, and incorporates <ins>Jekyll for GitHub Pages documentation</ins>.
 
 This template will build two docker images, which includes:
 1. Workspace Image(12.87 GB) 
@@ -16,9 +16,9 @@ This template will build two docker images, which includes:
 
 ## How to use this template?
 
-Get started with [Prerequisites](https://liuyuweitarek.github.io/python-poetry-wsl2-ubuntu-gpu-docker-template/getting_started/prerequisites/) and [Installation](https://github.com/liuyuweitarek/python-poetry-wsl2-ubuntu-gpu-docker-template/getting_started/installations.md) based on your Operating System and GPU Driver Version. Next, [customize this template](https://liuyuweitarek.github.io/python-poetry-wsl2-ubuntu-gpu-docker-template/getting_started/customized-to-new-project.md) for your project.
+Get started with [Prerequisites](https://liuyuweitarek.github.io/python-poetry-wsl2-ubuntu-gpu-docker-template/getting_started/prerequisites/) and [Installation](https://liuyuweitarek.github.io/python-poetry-wsl2-ubuntu-gpu-docker-template/getting_started/installations.html) based on your Operating System and GPU Driver Version. Next, [customize this template](https://liuyuweitarek.github.io/python-poetry-wsl2-ubuntu-gpu-docker-template/getting_started/customized-to-new-project.html) for your project.
 
-If you want to use this template as your project's documentation, please check more details in [editing this documentation](https://liuyuweitarek.github.io/python-poetry-wsl2-ubuntu-gpu-docker-template/documentations/index.md) that shows how to manage these pages and customize it for your project.
+If you want to use this template as your project's documentation, please check more details in [editing this documentation](https://liuyuweitarek.github.io/python-poetry-wsl2-ubuntu-gpu-docker-template/documentations/) that shows how to manage these pages and customize it for your project.
 
 See more details in [Template Documentation](https://liuyuweitarek.github.io/python-poetry-wsl2-ubuntu-gpu-docker-template/).
 
@@ -37,7 +37,7 @@ Please feel free to open an issue through [Github Issues](https://github.com/liu
     $ git clone https://github.com/${YOUR_GITHUB_USERNAME}/${YOUR_REPOSITORY_NAME}.git
     ```
 
-2. [Install Prerequisites](https://github.com/liuyuweitarek/python-poetry-wsl2-ubuntu-gpu-docker-template/getting_started/prerequisites)
+2. [Install Prerequisites](https://liuyuweitarek.github.io/python-poetry-wsl2-ubuntu-gpu-docker-template/getting_started/prerequisites)
     
 
 3. Launch the project
@@ -52,13 +52,13 @@ Please feel free to open an issue through [Github Issues](https://github.com/liu
 
 <ins>Customized content for your project</ins>
 
-See the "[Usage Page](https://github.com/liuyuweitarek/python-poetry-wsl2-ubuntu-gpu-docker-template/usage.md)" in the documentation for more setup and usage details.
+See the "[Usage Page]()" in the documentation for more setup and usage details.
 
 ## Results
 
 <ins>Customized content for your project</ins>
 
-See the "[Experiment Page](https://github.com/liuyuweitarek/python-poetry-wsl2-ubuntu-gpu-docker-template/usage.md)" in the documentation for more experiment details.
+See the "[Experiment Page]()" in the documentation for more experiment details.
 
 ## References
 
