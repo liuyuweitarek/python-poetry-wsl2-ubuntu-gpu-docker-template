@@ -1,27 +1,27 @@
-version: '1'
-
 services:
-  workspace:
-    container_name: "workspace-${PROJECT_NAME}"
+  dev-workspace:
+    container_name: "dev-worksapce"
     # For development
     stdin_open: true
     tty: true
     build:
-      context: ./${ROOT_DIR}
+      context: .
       dockerfile: Dockerfile
-      target: builder
+      target: dev
       args:
-        DEV: true
+        PYTHON_VERSION: ${PYTHON_VERSION}
+        POETRY_VERSION: ${POETRY_VERSION}
+        CUDA_VERSION: ${CUDA_VERSION}
+        UBUNTU_VERSION: ${UBUNTU_VERSION}
         ROOT_DIR: ${ROOT_DIR}
-        PROJECT_NAME: ${PROJECT_NAME}
+    profiles:
+      - dev
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DISABLE_REQUIRE=1
     volumes:
-      - ./${ROOT_DIR}:/${ROOT_DIR}
-      - venv:/${ROOT_DIR}/.venv
-    ports:
-      - "8000:8000"
+      - .${ROOT_DIR}:${ROOT_DIR}
+      - dev-venv:${ROOT_DIR}/.venv
     deploy:
       resources:
         reservations:
@@ -29,16 +29,43 @@ services:
           - driver: nvidia
             count: all
             capabilities: [gpu]
-    # depends_on:
-    #   - redis
-  jekyll:
-    container_name: "jekyll-${PROJECT_NAME}"
-    build: ./docs
+  
+  prod-workspace:
+    container_name: "prod-worksapce"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: prod
+      args:
+        PYTHON_VERSION: ${PYTHON_VERSION}
+        POETRY_VERSION: ${POETRY_VERSION}
+        CUDA_VERSION: ${CUDA_VERSION}
+        UBUNTU_VERSION: ${UBUNTU_VERSION}
+        ROOT_DIR: ${ROOT_DIR}
+    profiles:
+      - prod
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DISABLE_REQUIRE=1
     volumes:
-      - ./docs:/site
-    ports:
-      - '4000:4000'
+      - .${ROOT_DIR}:${ROOT_DIR}
+      - prod-venv:${ROOT_DIR}/.venv
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: all
+            capabilities: [gpu]
+  # jekyll:
+  #   container_name: "jekyll-docs"
+  #   build: ./docs
+  #   volumes:
+  #     - ./docs:/site
+  #   ports:
+  #     - '4000:4000'
 volumes:
-  venv:
+  dev-venv:
+  prod-venv:
 
     

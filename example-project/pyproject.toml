@@ -8,12 +8,9 @@ license = ""
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python="3.10.12"
-numpy="^1.26.3"
-torch={version="2.1.2+cu121", source="torch"}
-sanic = "^23.12.1"
-
-[tool.poetry.group.dev.dependencies]
+python=">=3.12"
+torch={version="2.4.1+cu121", source="torch"}
+numpy = "^2.1.1"
 
 [[tool.poetry.source]]
 name = "PyPI"
