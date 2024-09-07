@@ -10,6 +10,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python=">=3.10"
 torch={version="2.1.0+cu118", source="torch"}
+numpy = "1.26.4"
 
 [[tool.poetry.source]]
 name = "PyPI"
