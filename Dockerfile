@@ -6,7 +6,7 @@ ARG ROOT_DIR \
   UBUNTU_VERSION
 
 # Base Stage
-FROM nvidia/cuda:${CUDA_VERSION}-runtime-ubuntu${UBUNTU_VERSION} as base
+FROM nvidia/cuda:${CUDA_VERSION}-base-ubuntu${UBUNTU_VERSION} as base
 
 ARG ROOT_DIR=$ROOT_DIR \
   PYTHON_VERSION=$PYTHON_VERSION \
@@ -29,6 +29,7 @@ ENV PROJECT_ROOT_DIR=$ROOT_DIR \
   POETRY_REQUESTS_TIMEOUT=3000 \
   POETRY_VIRTUALENVS_IN_PROJECT=1 \
   POETRY_NO_INTERACTION=1 \
+  POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON=1 \
   POETRY_VIRTUALENVS_CREATE=1   
  
 ENV PATH=${VIRTUAL_ENV}/bin:${POETRY_HOME}/bin:$PATH
@@ -39,8 +40,11 @@ FROM base as builder
 ## Install Python and Poetry
 RUN apt-get update \
     && apt upgrade -y \
-    # && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone \
     && apt-get install --no-install-recommends -y curl wget build-essential software-properties-common \
+    && wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.0-1_all.deb \
+    && dpkg -i cuda-keyring_1.0-1_all.deb \
+    && apt-get update \
+    && apt-get install -y cuda-toolkit-12.0 \
     && add-apt-repository ppa:deadsnakes/ppa \
     && apt install -y python${PYTHON_VERSION}-venv python-is-python3\
     && ln -sf /usr/bin/python${PYTHON_VERSION} /usr/bin/python \
@@ -50,20 +54,16 @@ RUN apt-get update \
 
 WORKDIR ${PROJECT_ROOT_DIR}
 
-COPY .${PROJECT_ROOT_DIR}/pyproject.toml ./ .${PROJECT_ROOT_DIR}/poetry.lock ./
+COPY .${PROJECT_ROOT_DIR}/pyproject.toml .${PROJECT_ROOT_DIR}/poetry.lock ./
 
+# RUN poetry lock
 RUN poetry install && rm -rf ${POETRY_CACHE_DIR};
 
 # Development Stage
 FROM builder as dev
 
-# ARG ROOT_DIR=$ROOT_DIR
-
-ENV PROJECT_ENV=development
-  # VIRTUAL_ENV=$ROOT_DIR/.venv \
-  # POETRY_HOME=/opt/poetry
-
-ENV PATH=${VIRTUAL_ENV}/bin:${POETRY_HOME}/bin:$PATH
+ENV PROJECT_ENV=development \
+  PATH=${VIRTUAL_ENV}/bin:${POETRY_HOME}/bin:$PATH
 
 ## Copy poetry and venv from the builder stage
 COPY --from=builder ${POETRY_HOME} ${POETRY_HOME} 
@@ -75,13 +75,8 @@ COPY .${PROJECT_ROOT_DIR} ${PROJECT_ROOT_DIR}
 # Production Stage
 FROM builder as prod
 
-# ARG ROOT_DIR=$ROOT_DIR
-
-ENV PROJECT_ENV=production 
-  # VIRTUAL_ENV=$ROOT_DIR/.venv \
-  # POETRY_HOME=/opt/poetry
-
-ENV PATH=${VIRTUAL_ENV}/bin:${POETRY_HOME}/bin:$PATH
+ENV PROJECT_ENV=production \
+  PATH=${VIRTUAL_ENV}/bin:${POETRY_HOME}/bin:$PATH
 
 ## Only need to copy venv from the builder stage
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
